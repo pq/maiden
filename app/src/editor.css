@@ -93,3 +93,26 @@ body .ace_editor .ace_scrollbar:hover {
     letter-spacing: normal;
     pointer-events: none;
 }
+
+/* Markers */
+.marker-highlight-warning {
+    position: absolute;
+    border-bottom: solid 1px #CCCC00;
+    border-bottom-left-radius: 0px;
+    border-bottom-right-radius: 0px;
+    z-index: 1000;
+}
+.marker-highlight-error {
+    position: absolute;
+    border-bottom: solid 1px red;
+    border-bottom-left-radius: 0px;
+    border-bottom-right-radius: 0px;
+    z-index: 1000;
+}
+.marker-highlight-info {
+    position: absolute;
+    border-bottom: solid 1px blue;
+    border-bottom-left-radius: 0px;
+    border-bottom-right-radius: 0px;    
+    z-index: 1000;
+}

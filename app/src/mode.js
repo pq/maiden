@@ -3,6 +3,10 @@ export default class EditorMode {
     this.id = id;
     this.enableSnippets = true;
   }
+  
+  onChange() {
+    // no-op; optionally implemented in subclasses.
+  }
 
   /* eslint-disable-next-line no-unused-vars */
   onRender(editor) {

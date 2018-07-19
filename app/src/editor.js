@@ -74,6 +74,9 @@ class Editor extends Component {
       // we are consuming the first change, propagate the now modified buffer up
       this.props.bufferChange(this.props.bufferName, event);
     }
+
+    // console.log(this.editor.getSession().doc.getValue());
+    this.mode.onChange(this.editor.getSession().doc.getValue());
   };
 
   getValue = () => this.editor.getValue();
@@ -152,15 +155,20 @@ class Editor extends Component {
     const width = `${this.props.width}px`;
     const height = `${this.props.height}px`;
 
-    const mode = editorService.getMode(this.props.bufferName);
-    mode.onRender(this.editor);
+    this.mode = editorService.getMode(this.props.bufferName);
+    this.mode.onRender(this.editor);
 
     const theme = this.props.editorOptions.editorTheme || 'dawn';
+
+    // trigger validation of initial content.
+    if (this.props.value) {
+      this.mode.onChange(this.props.value);
+    }
 
     return (
       <AceEditor
         ref="ace"
-        mode={mode.id}
+        mode={this.mode.id}
         theme={theme}
         width={width}
         height={height}
@@ -169,7 +177,7 @@ class Editor extends Component {
         onChange={this.onChange}
         showPrintMargin={false}
         enableBasicAutocompletion
-        enableSnippets={mode.enableSnippets}
+        enableSnippets={this.mode.enableSnippets}
         editorProps={{
           $blockScrolling: Infinity,
           $newLineMode: 'unix',

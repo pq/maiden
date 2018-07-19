@@ -30,6 +30,14 @@ ace.define(
     padding-left: 0;
     color: #000;
   }
+  .ace-norns-dark .ace_gutter-cell.ace_info {
+    background-position: -6px center;
+    background-image: none;
+    background: #2E98DF;
+    border-left: none;
+    padding-left: 0;
+    color: #000;
+  }
   .ace-norns-dark .ace_print-margin {
     width: 1px;
     background: #25282c
